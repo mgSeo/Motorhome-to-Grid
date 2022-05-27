@@ -4,7 +4,7 @@ def func(data,index):
     re_data = pd.DataFrame(np.zeros([96,len(index)]),columns=index)
     re_data = pd.DataFrame()
 
-    ###    
+    ###
     data['timestamp'] = pd.to_datetime(data['timestamp'])
     data.index = data['timestamp'] # index 
     re_data['clientid'] = data.clientid.resample('15T').last()

@@ -1,7 +1,6 @@
 ## parameters ############################
 Foldername = 'VABJ0052_20220417-20220517'
 Carname = 'VABJ0052'
-ttt=1
 ## pre-set ############################
 from numpy import r_
 import pandas as pd
