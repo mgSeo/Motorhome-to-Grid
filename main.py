@@ -14,7 +14,7 @@ index = ['clientid','timestamp','cell1','cell2','cell3','cell4','cell_cap',\
 ## pre-set ############################
 
 
-
+df = pd.DataFrame() # df: 15분 데이터 적층용 데이터프레임
 for day in range(len(dt_list)):
     # if day != 3:
     #     continue
@@ -33,6 +33,6 @@ for day in range(len(dt_list)):
     import Combine_15min as C15
     data15 = C15.func(data,r_index)
 
-    data15.to_csv('min15.csv')
-    ss=1
-
+    ### 적층적층
+    df = pd.concat([df,data15])
+df.to_csv('Accumulated_15min_datas.csv')
