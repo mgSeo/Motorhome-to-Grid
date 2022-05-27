@@ -1,0 +1,37 @@
+## parameters ############################
+Foldername = 'VABJ0052_20220417-20220517'
+Carname = 'VABJ0052'
+ttt=1
+## pre-set ############################
+from numpy import r_
+import pandas as pd
+Start_day = Foldername[-17:-9]
+End_day = Foldername[-8:]
+dt_index = pd.date_range(start=Start_day, end=End_day)
+dt_list = dt_index.strftime("%Y%m%d").tolist()
+index = ['clientid','timestamp','cell1','cell2','cell3','cell4','cell_cap',\
+            'current1','current2','current3','current4','etc','port1','port2','rport','saac','sac','soc','state',\
+                'temperature1','temperature2','temperature3','temperature4','temperature5','temperature6','timeindex','version','volt','wport']
+## pre-set ############################
+
+
+
+for day in range(len(dt_list)):
+    if day != 3:
+        continue
+    Filename = Foldername + '/' + Carname + '-bms_records-' + dt_list[day] + '.csv'    
+    Data = pd.read_csv(Filename)
+    
+    ### 데이터 전처리
+    import Preprocess
+    data = Preprocess.func(Data,index)
+
+    ### load 분리
+    import Disaggregator
+    data,r_index = Disaggregator.func(data,index)
+
+    ### load, PV 시계열로 출력
+    import Combine_15min as C15
+    C15.func(data,r_index)
+
+
