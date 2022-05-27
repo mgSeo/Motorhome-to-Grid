@@ -13,7 +13,6 @@ def func(data,index):
     re_data['cell3'] = data.cell3.resample('15T').mean()
     re_data['cell4'] = data.cell4.resample('15T').mean()
     re_data['volt'] = data.volt.resample('15T').mean()    
-    re_data['alter'] = data.current2.resample('15T').sum()
     re_data['pv'] = data.current4.resample('15T').sum()
     re_data['load'] = data.load.resample('15T').sum()
     re_data['cell_cap'] = data.cell_cap.resample('15T').median()

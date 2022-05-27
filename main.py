@@ -1,6 +1,6 @@
 ## parameters ############################
-Foldername = 'VABJ0052_20220417-20220517'
-Carname = 'VABJ0052'
+Foldername = '10015_20220417-20220517'
+Carname = '10015'
 ## pre-set ############################
 from numpy import r_
 import pandas as pd
@@ -16,8 +16,8 @@ index = ['clientid','timestamp','cell1','cell2','cell3','cell4','cell_cap',\
 
 
 for day in range(len(dt_list)):
-    if day != 3:
-        continue
+    # if day != 3:
+    #     continue
     Filename = Foldername + '/' + Carname + '-bms_records-' + dt_list[day] + '.csv'    
     Data = pd.read_csv(Filename)
     
@@ -31,6 +31,8 @@ for day in range(len(dt_list)):
 
     ### load, PV 시계열로 출력
     import Combine_15min as C15
-    C15.func(data,r_index)
+    data15 = C15.func(data,r_index)
 
+    data15.to_csv('min15.csv')
+    ss=1
 
