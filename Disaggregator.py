@@ -1,6 +1,7 @@
 def func(data,index):
     import numpy as np
     import pandas as pd
+    import copy
     pd.set_option('mode.chained_assignment',  None)
     
     # data -> load[A], gen[A], alter[A]
@@ -18,7 +19,7 @@ def func(data,index):
     data.drop(['current2'], axis=1, inplace=True)
     data.drop(['current3'], axis=1, inplace=True)
     data.rename(columns = {'current4':'pv'},inplace=True)
-    re_index = index
+    re_index = copy.deepcopy(index)
     re_index.remove('current1')
     re_index.remove('current3')
     re_index.append('load')

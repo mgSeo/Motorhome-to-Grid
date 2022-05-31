@@ -1,10 +1,10 @@
 # import numpy as np
 import pandas as pd
 
-Foldernames = ['10015_20220417-20220517', 'VABJ0052_20220417-20220517', 'VABJ0079_20220417-20220517']
-cars = ['10015', 'VABJ0052', 'VABJ0079']
+Foldernames = ['10015_20220417-20220517', 'VABJ0052_20220417-20220517', 'VABJ0079_20220417-20220517','VABJ0099_20220301-20220530']
+cars = ['10015', 'VABJ0052', 'VABJ0079','VABJ0099']
 Path = 'Result_accumulated/'
-for car in range(3):
+for car in range(len(cars)):
     ## parameters ############################
     Foldername = Foldernames[car]
     Carname = cars[car]
@@ -21,8 +21,6 @@ for car in range(3):
 
     df = pd.DataFrame() # df: 15분 데이터 적층용 데이터프레임
     for day in range(len(dt_list)):
-        # if day != 3:
-        #     continue
         Filename = 'Datas/' + Foldername + '/' + Carname + '-bms_records-' + dt_list[day] + '.csv'    
         Data = pd.read_csv(Filename)
         
