@@ -18,7 +18,7 @@ index = ['clientid','timestamp','cell1','cell2','cell3','cell4','cell_cap',\
 for day in range(len(dt_list)):
     # if day != 3:
     #     continue
-    Filename = Foldername + '/' + Carname + '-bms_records-' + dt_list[day] + '.csv'    
+    Filename = 'Datas/' + Foldername + '/' + Carname + '-bms_records-' + dt_list[day] + '.csv'    
     Data = pd.read_csv(Filename)
     
     ### 데이터 전처리
