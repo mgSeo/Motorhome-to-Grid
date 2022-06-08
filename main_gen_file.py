@@ -28,9 +28,13 @@ for car in range(len(cars)):
         import Preprocess
         data = Preprocess.func(Data,index)
 
-        ### load 분리
+         ### load 분리
         import Disaggregator
         data,r_index = Disaggregator.func(data,index)
+        
+        ### 요일 및 휴일 반영
+        import select_daytype
+        data = select_daytype.func(data)
 
         ### load, PV 시계열로 출력
         import Combine_15min as C15

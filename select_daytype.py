@@ -10,7 +10,10 @@ def func(data):
     def get_holiday(url, operation, params, serviceKey):
         params = urlparse.urlencode(params)
         request_query = url + '/' + operation + '?' + params + '&' + 'serviceKey' + '=' + serviceKey
-        res = requests.get(request_query)
+        # session = requests.Session()
+        # session.max_redirects = 60
+
+        res = requests.get(request_query, allow_redirects=False)
         soup = BeautifulSoup(res.text, 'lxml')
         items = soup.find_all('item')
         day = pd.DataFrame()

@@ -37,6 +37,4 @@ for day in range(len(dt_list)):
     ### load, PV 시계열로 출력
     import Combine_15min as C15
     data15 = C15.func(data,r_index)
-
-    data15.to_csv('min15_'+dt_list[day]+'.csv')
     ss = 1
