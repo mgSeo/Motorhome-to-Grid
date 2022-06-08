@@ -39,5 +39,4 @@ for day in range(len(dt_list)):
     data15 = C15.func(data,r_index)
 
     data15.to_csv('min15_'+dt_list[day]+'.csv')
-    ss=1
-
+    ss = 1

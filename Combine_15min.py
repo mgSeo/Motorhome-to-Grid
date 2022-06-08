@@ -5,7 +5,6 @@ def func(data,index):
     re_data = pd.DataFrame(np.zeros([96,len(index)]),columns=index)
     re_data = pd.DataFrame()    
     data['timestamp'] = pd.to_datetime(data['timestamp']) # datetime type으로 변환
-    
 
     data.index = data['timestamp'] # index 로 설정
     # mean
